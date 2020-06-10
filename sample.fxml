@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.TextArea?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<SplitPane stylesheets="@application.css" dividerPositions="0.7506265664160401" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"
+           style="-fx-background-color: lightgrey;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller">
+    <items>
+        <AnchorPane>
+            <children>
+                <HBox minWidth="-Infinity" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <MenuBar fx:id="fileMenu" prefWidth="1000.0" HBox.hgrow="ALWAYS">
+                            <menus>
+                                <Menu mnemonicParsing="false" text="File">
+                                    <MenuItem mnemonicParsing="false" onAction="#chooseTxtFile" text="Open"></MenuItem>
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <Menu mnemonicParsing="false" text="Save">
+                                        <MenuItem mnemonicParsing="false" onAction="#handleSaveLogFile" text="Save LogFile"></MenuItem>
+                                    </Menu>
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About"></MenuItem>
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit"></MenuItem>
+                                </Menu>
+                            </menus>
+                        </MenuBar>
+                    </children>
+                </HBox>
+                <Label text="CarNumber :" layoutX="25.0" layoutY="75.0" />
+                <TextField fx:id="carnumber" layoutX="100.0" layoutY="72.0"/>
+                <Label text="Marka :" layoutX="25.0" layoutY="150.0" />
+                <TextField fx:id="marka" layoutX="100.0" layoutY="147.0"/>
+
+                <Label text="Probig :" layoutX="25.0" layoutY="225.0" />
+                <TextField fx:id="probig" layoutX="100.0" layoutY="222.0"/>
+
+                <Label text="Maister :" layoutX="25.0" layoutY="300.0" />
+                <TextField fx:id="maister" layoutX="100.0" layoutY="297.0" />
+
+                <Label text="Price :" layoutX="25.0" layoutY="375.0" />
+                <TextField fx:id="price" layoutX="100.0" layoutY="372.0" />
+
+                <FlowPane  layoutX="50.0" layoutY="450.0" >
+                    <Button fx:id="firstServiceBtn" disable="true" onAction="#getFirstService" text="First"/>
+                    <Button fx:id="prevServiceBtn" disable="true" onAction="#getPrevService" text="Prev"/>
+                    <Button fx:id="nextServiceBtn" disable="true" onAction="#getNextService" text="Next"/>
+                    <Button fx:id="lastServiceBtn" disable="true" onAction="#getLastService" text="Last"/>
+                </FlowPane>
+                <Button fx:id="modifyBtn" disable="true" onAction="#modify" text="Modify" layoutX="300.0" layoutY="110.0" />
+                <Button fx:id="addBtn" disable="true" onAction="#add" text="Add" layoutX="300.0" layoutY="185.0" />
+                <Button fx:id="deleteBtn" disable="true" onAction="#delete" text="Delete" layoutX="300.0" layoutY="260.0"/>
+                <Button fx:id="deleteAllBtn" disable="true" onAction="#deleteAll" text="Delete all" layoutX="300.0" layoutY="335.0"/>
+
+                <Label text="Date and time :" layoutX="475.0" layoutY="210.0"/>
+                <TextField fx:id="dateTime" disable="true" layoutX="575.0" layoutY="207.0"/>
+
+                <Label text="Error :" layoutX="475.0" layoutY="260.0" />
+                <TextField fx:id="errorText" disable="true" layoutX="520.0" layoutY="257.0" prefWidth="280.0"/>
+
+                <FlowPane layoutX="515.0" layoutY="325.0" >
+                    <Button fx:id="firstLogBtn" disable="true" onAction="#getFirstLog" text="First"/>
+                    <Button fx:id="prevLogBtn" disable="true" onAction="#getPrevLog" text="Prev"/>
+                    <Button fx:id="nextLogBtn" disable="true" onAction="#getNextLog" text="Next"/>
+                    <Button fx:id="lastLogBtn" disable="true" onAction="#getLastLog" text="Last"/>
+                </FlowPane>
+                <TextArea editable="false" fx:id="listLogs" layoutX="849.0" layoutY="30.0" prefHeight="567.0" prefWidth="349.0"
+                          AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.leftAnchor="848.0" AnchorPane.topAnchor="25.0"></TextArea>
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="1000.0" prefHeight="100.0" prefWidth="1000.0">
+            <children>
+                <HBox />
+                <Label text="Write database name :" layoutX="25.0" layoutY="25.0" />
+                <TextField fx:id="db" layoutX="160.0" layoutY="22.0"/>
+                <Button fx:id="connectToSqlBtn" disable="true" onAction="#connectToSql" text="Connect to MySQL"
+                        layoutX="100.0" layoutY="80.0"/>
+
+                <Button fx:id="createCarServiceTableBtn" disable="true" onAction="#createCarServiceTable" text="Create CarService table"
+                        layoutX="25.0" layoutY="130.0"/>
+                <Button fx:id="createLogTableBtn" disable="true" onAction="#createLogTable" text="Create log table"
+                        layoutX="210.0" layoutY="130.0"/>
+
+                <Button fx:id="loadToSqlBtn" disable="true" onAction="#loadToSql" text="Load data to MySQL"
+                        layoutX="365.0" layoutY="80.0"/>
+
+                <Button fx:id="showCarServiceTableBtn" disable="true" onAction="#showCarServiceTable" text="Show CarService table"
+                        layoutX="525.0" layoutY="25.0"/>
+                <Button fx:id="showLogTableBtn" disable="true" onAction="#showLogTable" text="Show Log table"
+                        layoutX="525.0" layoutY="130.0"/>
+
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="750.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@res/logo.png" backgroundLoading="true"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="ServiceName" layoutX="950.0" layoutY="75.0" text="Vanyok Service"></Label>
+            </children></AnchorPane>
+    </items>
+</SplitPane>

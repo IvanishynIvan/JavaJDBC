@@ -1,0 +1,10 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#carTable .table-column {
+  -fx-alignment: center;
+}
+
+#ServiceName {
+    -fx-font-family: Impact, Charcoal, sans-serif;
+    -fx-text-fill: rgb(255, 77, 77);
+    -fx-font-size: 28;
+}
